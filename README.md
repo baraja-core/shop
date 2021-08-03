@@ -1,4 +1,4 @@
-Template
-========
+Shop
+====
 
-This is a template package.
+Common shop description and meta package.

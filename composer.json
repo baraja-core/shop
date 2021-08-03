@@ -1,7 +1,7 @@
 {
-	"name": "baraja-core/template",
-	"description": "This is a template package.",
-	"homepage": "https://github.com/baraja-core/template",
+	"name": "baraja-core/shop",
+	"description": "Common shop description and meta package.",
+	"homepage": "https://github.com/baraja-core/shop",
 	"authors": [
 		{
 			"name": "Jan Barášek",
@@ -9,7 +9,8 @@
 		}
 	],
 	"require": {
-		"php": "^8.0"
+		"php": "^8.0",
+		"baraja-core/dynamic-configuration": "^2.1"
 	},
 	"require-dev": {
 		"tracy/tracy": "^2.8",
