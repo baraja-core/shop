@@ -22,6 +22,12 @@ final class Context
 	}
 
 
+	public function getCurrencyResolver(): CurrencyResolver
+	{
+		return $this->currencyResolver;
+	}
+
+
 	public function getCurrencyCode(): string
 	{
 		return $this->currencyResolver->resolveCode();

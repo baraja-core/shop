@@ -18,11 +18,11 @@ class CurrencyResolver
 	}
 
 
-	public function resolveCode(): string
+	public function resolveCode(?string $locale = null): string
 	{
 		$session = $this->getSessionValue();
 		if ($session === null) {
-			$locale = $this->localization->getLocale();
+			$locale ??= $this->localization->getLocale();
 			$currency = $this->currencyManager->get()->getByLocale($locale);
 			$this->setCurrency($currency);
 			$session = $currency->getCode();
@@ -32,9 +32,9 @@ class CurrencyResolver
 	}
 
 
-	public function resolveEntity(): Currency
+	public function resolveEntity(?string $locale = null): Currency
 	{
-		return $this->currencyManager->get()->getCurrency($this->resolveCode());
+		return $this->currencyManager->get()->getCurrency($this->resolveCode($locale));
 	}
 
 
