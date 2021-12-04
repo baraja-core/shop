@@ -10,7 +10,9 @@
 	],
 	"require": {
 		"php": "^8.0",
-		"baraja-core/dynamic-configuration": "^2.1"
+		"baraja-core/localization": "^2.0",
+		"baraja-core/dynamic-configuration": "^2.1",
+		"baraja-core/shop-currency": "^1.0"
 	},
 	"require-dev": {
 		"tracy/tracy": "^2.8",
