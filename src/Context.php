@@ -11,16 +11,26 @@ use Baraja\Shop\Entity\Currency\Currency;
 
 final class Context
 {
+	private CurrencyResolver $currencyResolver;
+
+
 	public function __construct(
 		private Localization $localization,
 		private CurrencyManagerAccessor $currencyManager,
 	) {
+		$this->currencyResolver = new CurrencyResolver($localization, $currencyManager);
+	}
+
+
+	public function getCurrencyCode(): string
+	{
+		return $this->currencyResolver->resolveCode();
 	}
 
 
 	public function getCurrency(): Currency
 	{
-		return $this->currencyManager->get()->getMainCurrency();
+		return $this->currencyResolver->resolveEntity();
 	}
 
 
