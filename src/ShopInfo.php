@@ -70,4 +70,16 @@ final class ShopInfo
 	{
 		return $this->configuration->get('bank-account');
 	}
+
+
+	public function getCustomEmailFooter(): ?string
+	{
+		return $this->configuration->get('email-footer');
+	}
+
+
+	public function getLogoUrl(): ?string
+	{
+		return null;
+	}
 }
