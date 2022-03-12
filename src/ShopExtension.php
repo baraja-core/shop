@@ -16,5 +16,11 @@ final class ShopExtension extends CompilerExtension
 
 		$builder->addDefinition($this->prefix('shopInfo'))
 			->setFactory(ShopInfo::class);
+
+		$builder->addDefinition($this->prefix('context'))
+			->setFactory(Context::class);
+
+		$builder->addAccessorDefinition($this->prefix('contextAccessor'))
+			->setImplement(ContextAccessor::class);
 	}
 }
