@@ -16,7 +16,7 @@ final class Context
 
 	public function __construct(
 		private Localization $localization,
-		private CurrencyManagerAccessor $currencyManager,
+		CurrencyManagerAccessor $currencyManager,
 	) {
 		$this->currencyResolver = new CurrencyResolver($localization, $currencyManager);
 	}
