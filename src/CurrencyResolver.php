@@ -9,7 +9,6 @@ use Baraja\EcommerceStandard\DTO\CurrencyInterface;
 use Baraja\EcommerceStandard\Service\CurrencyResolverInterface;
 use Baraja\Localization\Localization;
 use Baraja\Shop\Currency\CurrencyManagerAccessor;
-use Baraja\Shop\Entity\Currency\Currency;
 
 class CurrencyResolver implements CurrencyResolverInterface
 {
@@ -34,7 +33,7 @@ class CurrencyResolver implements CurrencyResolverInterface
 	}
 
 
-	public function resolveEntity(?string $locale = null): Currency
+	public function resolveEntity(?string $locale = null): CurrencyInterface
 	{
 		return $this->currencyManager->get()->getCurrency($this->resolveCode($locale));
 	}
