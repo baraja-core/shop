@@ -5,8 +5,8 @@ declare(strict_types=1);
 namespace Baraja\Shop;
 
 
+use Baraja\EcommerceStandard\DTO\CurrencyInterface;
 use Baraja\Localization\Localization;
-use Baraja\Shop\Entity\Currency\Currency;
 
 final class Context
 {
@@ -29,7 +29,7 @@ final class Context
 	}
 
 
-	public function getCurrency(): Currency
+	public function getCurrency(): CurrencyInterface
 	{
 		return $this->getCurrencyResolver()->resolveEntity();
 	}
