@@ -22,5 +22,11 @@ final class ShopExtension extends CompilerExtension
 
 		$builder->addAccessorDefinition($this->prefix('contextAccessor'))
 			->setImplement(ContextAccessor::class);
+
+		$builder->addDefinition($this->prefix('currencyResolver'))
+			->setFactory(CurrencyResolver::class);
+
+		$builder->addAccessorDefinition($this->prefix('currencyResolverAccessor'))
+			->setImplement(CurrencyResolverAccessor::class);
 	}
 }

@@ -6,37 +6,32 @@ namespace Baraja\Shop;
 
 
 use Baraja\Localization\Localization;
-use Baraja\Shop\Currency\CurrencyManagerAccessor;
 use Baraja\Shop\Entity\Currency\Currency;
 
 final class Context
 {
-	private CurrencyResolver $currencyResolver;
-
-
 	public function __construct(
 		private Localization $localization,
-		CurrencyManagerAccessor $currencyManager,
+		private CurrencyResolverAccessor $currencyResolverAccessor,
 	) {
-		$this->currencyResolver = new CurrencyResolver($localization, $currencyManager);
 	}
 
 
 	public function getCurrencyResolver(): CurrencyResolver
 	{
-		return $this->currencyResolver;
+		return $this->currencyResolverAccessor->get();
 	}
 
 
 	public function getCurrencyCode(): string
 	{
-		return $this->currencyResolver->resolveCode();
+		return $this->getCurrencyResolver()->resolveCode();
 	}
 
 
 	public function getCurrency(): Currency
 	{
-		return $this->currencyResolver->resolveEntity();
+		return $this->getCurrencyResolver()->resolveEntity();
 	}
 
 

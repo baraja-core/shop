@@ -5,11 +5,13 @@ declare(strict_types=1);
 namespace Baraja\Shop;
 
 
+use Baraja\EcommerceStandard\DTO\CurrencyInterface;
+use Baraja\EcommerceStandard\Service\CurrencyResolverInterface;
 use Baraja\Localization\Localization;
 use Baraja\Shop\Currency\CurrencyManagerAccessor;
 use Baraja\Shop\Entity\Currency\Currency;
 
-class CurrencyResolver
+class CurrencyResolver implements CurrencyResolverInterface
 {
 	public function __construct(
 		private Localization $localization,
@@ -38,7 +40,7 @@ class CurrencyResolver
 	}
 
 
-	public function setCurrency(Currency|string $currency): void
+	public function setCurrency(CurrencyInterface|string $currency): void
 	{
 		if (is_string($currency)) {
 			$entity = $this->currencyManager->get()->getCurrency($currency);
